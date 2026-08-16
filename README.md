@@ -1,8 +1,10 @@
-# Codex 1M Context
+# enable-codex-1m
 
-One-click, open-source enabler for the **1M-token context window** in [OpenAI Codex](https://developers.openai.com/codex).
+**One-click, open-source enabler for the 1M-token context window in [OpenAI Codex](https://developers.openai.com/codex).**
 
-Based on the official instructions from [@thsottiaux](https://x.com/thsottiaux/status/2089082893804896524) (Codex @ OpenAI):
+Community tool. Not affiliated with OpenAI. MIT licensed.
+
+Based on official guidance from [@thsottiaux](https://x.com/thsottiaux/status/2089082893804896524) (Codex @ OpenAI):
 
 ```toml
 model = "gpt-5.6-sol"
@@ -12,23 +14,17 @@ model_auto_compact_token_limit = 900000
 
 ## One-click install
 
-From this repo (recommended — installs the `codex-1m` helper):
-
 ```bash
-./install.sh
-```
-
-Or download-and-run:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/manojnagendra/Codex/main/install.sh -o /tmp/codex-1m.sh
+curl -fsSL https://raw.githubusercontent.com/manojnagendra/enable-codex-1m/main/install.sh -o /tmp/codex-1m.sh
 bash /tmp/codex-1m.sh
 ```
 
-Piped install also works for the config change:
+Or clone and run:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/manojnagendra/Codex/main/install.sh | bash
+git clone https://github.com/manojnagendra/enable-codex-1m.git
+cd enable-codex-1m
+./install.sh
 ```
 
 Then **restart Codex** and start a **new session**.
@@ -104,6 +100,11 @@ codex -m gpt-5.6-sol \
 - Only edits **top-level** keys before the first `[section]` — plugin / marketplace tables are left alone
 - Larger context can cost more and may feel slower; OpenAI’s defaults are intentional tradeoffs
 - After enabling, restart the Codex client and start a **new** session
+- This tool only edits your local Codex config; it does not bypass server-side plan or model limits
+
+## Disclaimer
+
+This is an unofficial community project. Use at your own risk. Review `install.sh` before piping it to bash. OpenAI may change Codex defaults, catalog limits, or supported overrides at any time.
 
 ## Uninstall
 
@@ -112,6 +113,10 @@ codex -m gpt-5.6-sol \
 ./install.sh uninstall
 ```
 
+## Contributing
+
+Issues and PRs welcome. Keep the installer safe, idempotent, and easy to reverse.
+
 ## License
 
-MIT
+[MIT](./LICENSE) © Manoj Nagendra
